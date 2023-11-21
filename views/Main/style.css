@@ -8,6 +8,7 @@
 body {
     /* background: linear-gradient(45deg, #bdc3c7, #95a5a6, #7f8c8d); */
     background-color: #444D55;
+    /* background-color: red; */
     display: flex;
     height: 100vh;
     width: 100vw;
@@ -21,8 +22,8 @@ body {
     display: flex;
     flex-direction: column;
     /* background-color: red; */
-    width: 90vw;
-    height: 90vh;
+    width: 90%;
+    height: 90%;
     align-items: center;
     background-color: #fff;
 
@@ -44,9 +45,13 @@ body {
     justify-content: space-between;
 }
 
+
 .imageContainer {
-    width: 72px;
-    height: 72px;
+    /* width: 72px;
+    height: 72px; */
+    width: 17%;
+    /* background-color: aqua; */
+    height: 17%;
 }
 
 .imageContainer img {
@@ -62,7 +67,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 5px;
+    gap: 0.5%;
 
 }
 
@@ -70,11 +75,12 @@ body {
     display: flex;
     align-items: center;
     width: 50%;
+    font-size: 90%;
     /* background-color: #3E7670; */
 }
 
 .creditsContainer {
-    font-size: 14px;
+    font-size: 80%;
     font-style: italic;
     width: 40%;
     height: 100%;
@@ -106,6 +112,7 @@ body {
     background-color: rgba(236, 240, 241, 0.6);
     border: 1px solid #bdc3c7;
     border-radius: 15px;
+    font-size: 100%;
     /* background-color: red; */
 }
 
@@ -159,6 +166,7 @@ ul {
 
 .tituloEConfiguracoes {
     display: flex;
+    font-size: 90%;
     align-items: center;
     justify-content: space-between;
 }
@@ -210,8 +218,8 @@ ul {
 
 .loading-progress span {
     animation: dots 2s infinite ease-in-out;
-    width: 20px;
-    height: 20px;
+    width: 15%;
+    height: 15%;
     border-radius: 50%;
     display: inline-block;
     background-color: #fff;
@@ -248,9 +256,9 @@ ul {
     height: 100%;
 }
 
+/* 
 @media screen and (max-width: 500px) {
     .logoAndTextContainer {
-        /* background-color: #444D55; */
         font-size: 8px;
         width: 70%;
     }
@@ -284,7 +292,6 @@ ul {
 
 @media screen and (max-width: 767px) {
     .logoAndTextContainer {
-        /* background-color: #444D55; */
         font-size: 10px;
         width: 70%;
     }
@@ -318,7 +325,6 @@ ul {
 
 @media screen and (max-width: 1023px) {
     .logoAndTextContainer {
-        /* background-color: #444D55; */
         font-size: 15px;
         width: 70%;
     }
@@ -348,4 +354,4 @@ ul {
     ul {
         font-size: 15px;
     }
-}
+} */
