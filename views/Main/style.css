@@ -47,11 +47,11 @@ body {
 
 
 .imageContainer {
-    /* width: 72px;
-    height: 72px; */
-    width: 17%;
+    width: 54px;
+    height: 54px;
+    /* width: 17%; */
     /* background-color: aqua; */
-    height: 17%;
+    /* height: 17%; */
 }
 
 .imageContainer img {
@@ -256,26 +256,49 @@ ul {
     height: 100%;
 }
 
-/* 
-@media screen and (max-width: 500px) {
-    .logoAndTextContainer {
-        font-size: 8px;
-        width: 70%;
+
+@media screen and (min-width: 320px) {
+
+    .headerContainer {
+        flex-direction: column;
+        height: 20%;
+        width: 100%;
+        /* background-color: aqua; */
+        align-items: start;
+        justify-content: center;
     }
 
     .creditsContainer {
-        font-size: 6.5px;
+        width: 100%;
+        /* background-color: yellow; */
+        font-size: 10px;
+        letter-spacing: 1px;
     }
 
+    .imageAndTextContainer {
+        font-size: 15px;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        /* background-color: red; */
+    }
+
+    .logoAndTextContainer {
+        font-size: 12px;
+        width: 100%;
+    }
+
+
+
     select {
-        font-size: 8px;
+        font-size: 10px;
     }
 
 
     .tituloEConfiguracoes {
-        font-size: 8px;
+        margin: 2px 0;
+        font-size: 10px;
     }
-
 
     .escalasContainer {
         justify-content: start;
@@ -286,11 +309,22 @@ ul {
     }
 
     ul {
-        font-size: 8px;
+        font-size: 10px;
+    }
+
+    .loading-progress {
+        /* background-color: #B95946; */
+        height: 20%;
+        width: 20%;
+    }
+
+    .loading-progress span {
+        width: 15px;
+        height: 15px;
     }
 }
 
-@media screen and (max-width: 767px) {
+/* @media screen and (min-width: 720px) {
     .logoAndTextContainer {
         font-size: 10px;
         width: 70%;
@@ -321,9 +355,9 @@ ul {
     ul {
         font-size: 14px;
     }
-}
+} */
 
-@media screen and (max-width: 1023px) {
+/* @media screen and (min-width: 1023px) {
     .logoAndTextContainer {
         font-size: 15px;
         width: 70%;
