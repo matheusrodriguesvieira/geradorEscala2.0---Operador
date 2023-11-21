@@ -67,7 +67,7 @@ function atualizarTelaEscalas() {
 
     if (listaEscalaDaTurma.message != null) {
         ulListaEscalas.innerHTML += `
-        <li id="${escala.idlista}">
+        <li>
             ${listaEscalaDaTurma.message}
         </li>
         `;
