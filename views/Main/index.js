@@ -24,16 +24,13 @@ async function fetchData() {
 
     await fetch(listaEscalaUrl)
         .then(response => {
-            // Verifica se a requisição foi bem-sucedida (status 200-299)
             if (!response.ok) {
                 throw new Error(`Erro na requisição: ${response.status}`);
             }
 
-            // Converte a resposta para JSON
             return response.json();
         })
         .then(data => {
-            // Trabalha com os dados recebidos
             listaEscalaDaTurma = data;
             console.log(listaEscalaDaTurma);
         })
