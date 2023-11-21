@@ -289,6 +289,19 @@ ul {
     height: 100%;
 }
 
+@media screen and (max-width: 500px) {
+
+    th {
+        font-size: 9px;
+    }
+
+    th:nth-child(1) {
+        /* width: 17%; */
+        text-align: center;
+        /* background-color: #484c54; */
+    }
+}
+
 @media screen and (max-width: 767px) {
 
     .styled-table thead tr {

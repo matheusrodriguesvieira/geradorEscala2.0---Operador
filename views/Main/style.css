@@ -248,6 +248,40 @@ ul {
     height: 100%;
 }
 
+@media screen and (max-width: 500px) {
+    .logoAndTextContainer {
+        /* background-color: #444D55; */
+        font-size: 8px;
+        width: 70%;
+    }
+
+    .creditsContainer {
+        font-size: 6.5px;
+    }
+
+    select {
+        font-size: 8px;
+    }
+
+
+    .tituloEConfiguracoes {
+        font-size: 8px;
+    }
+
+
+    .escalasContainer {
+        justify-content: start;
+    }
+
+    .listaContainer {
+        margin-top: 1%;
+    }
+
+    ul {
+        font-size: 8px;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .logoAndTextContainer {
         /* background-color: #444D55; */
