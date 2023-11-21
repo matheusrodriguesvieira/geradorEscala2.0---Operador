@@ -289,7 +289,7 @@ ul {
     height: 100%;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 720px) {
     .loading-progress {
         /* background-color: #B95946; */
         height: 20%;
