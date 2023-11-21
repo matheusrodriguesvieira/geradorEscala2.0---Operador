@@ -85,10 +85,6 @@ function renderizarEscala(escala, operadoresForaEscala) {
     }
 }
 
-function mostrarTela1() {
-    window.location.href = '../tela2/index.html';
-}
-
 async function carregarAplicacao() {
     turma = sessionStorage.getItem('turma');
 
@@ -108,7 +104,7 @@ async function carregarAplicacao() {
 function atribuirEventos() {
     // // BOTAO VOLTAR DA TELA 2
     btnMostrarTela1.addEventListener('click', () => {
-        window.location.href = '../main/index.html';
+        window.location.replace = '../Main/index.html';
     });
 }
 
@@ -118,7 +114,7 @@ function atribuirEventos() {
 
 window.addEventListener('load', async () => {
     if (sessionStorage.getItem('turma') == null) {
-        window.location.replace('../main/index.html');
+        window.location.replace('../Main/index.html');
     }
 
     let loading = document.querySelector('.screen-loading-container');
