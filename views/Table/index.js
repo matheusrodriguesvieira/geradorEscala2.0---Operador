@@ -103,8 +103,9 @@ async function carregarAplicacao() {
 
 function atribuirEventos() {
     // // BOTAO VOLTAR DA TELA 2
+    // console.log(btnMostrarTela1);
     btnMostrarTela1.addEventListener('click', () => {
-        window.location.replace = '../Main/index.html';
+        window.location.replace('../Main/index.html');
     });
 }
 
