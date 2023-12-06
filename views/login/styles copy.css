@@ -8,7 +8,6 @@
 body {
     /* background: linear-gradient(45deg, #bdc3c7, #95a5a6, #7f8c8d); */
     background-color: #444D55;
-    /* background-color: red; */
     display: flex;
     height: 100vh;
     width: 100vw;
@@ -22,8 +21,8 @@ body {
     display: flex;
     flex-direction: column;
     /* background-color: red; */
-    width: 90%;
-    height: 90%;
+    width: 90vw;
+    height: 90vh;
     align-items: center;
     background-color: #fff;
 
@@ -45,13 +44,9 @@ body {
     justify-content: space-between;
 }
 
-
 .imageContainer {
-    width: 54px;
-    height: 54px;
-    /* width: 17%; */
-    /* background-color: aqua; */
-    /* height: 17%; */
+    width: 72px;
+    height: 72px;
 }
 
 .imageContainer img {
@@ -67,7 +62,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 0.5%;
+    gap: 5px;
 
 }
 
@@ -75,12 +70,11 @@ body {
     display: flex;
     align-items: center;
     width: 50%;
-    font-size: 90%;
     /* background-color: #3E7670; */
 }
 
 .creditsContainer {
-    font-size: 80%;
+    font-size: 14px;
     font-style: italic;
     width: 40%;
     height: 100%;
@@ -112,7 +106,6 @@ body {
     background-color: rgba(236, 240, 241, 0.6);
     border: 1px solid #bdc3c7;
     border-radius: 15px;
-    font-size: 100%;
     /* background-color: red; */
 }
 
@@ -133,6 +126,62 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 5px;
+}
+
+.personalizadoBtn {
+    width: 100%;
+    height: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    color: #fff;
+    /* height: 5%; */
+    background-color: #3E7670;
+    cursor: pointer;
+    /* overflow: hidden; */
+    border-radius: 10px;
+
+}
+
+
+
+
+
+
+.coverBtn {
+    z-index: 0;
+    position: relative;
+    transition: 0.8s;
+    overflow: hidden;
+    /* border: #16a085 1px solid; */
+}
+
+.coverBtn:hover {
+    color: #fff;
+}
+
+.coverBtn::before {
+    content: "";
+    position: absolute;
+    background-color: #B95946;
+    border-radius: 0 0 50% 50%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 0;
+    transition: 0.8s;
+    z-index: -1;
+}
+
+.coverBtn:hover::before {
+    height: 200%;
+}
+
+.personalizadoBtnContainer {
+    width: 100%;
+    height: 5%;
+    /* background-color: ; */
+    text-align: center;
 }
 
 ul {
@@ -166,7 +215,6 @@ ul {
 
 .tituloEConfiguracoes {
     display: flex;
-    font-size: 90%;
     align-items: center;
     justify-content: space-between;
 }
@@ -218,8 +266,8 @@ ul {
 
 .loading-progress span {
     animation: dots 2s infinite ease-in-out;
-    width: 15%;
-    height: 15%;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     display: inline-block;
     background-color: #fff;
@@ -256,20 +304,22 @@ ul {
     height: 100%;
 }
 
-.mostrar {
-    display: flex;
-}
 
-@media screen and (min-width: 320px) and (max-width: 720px) {
+@media screen and (max-width: 720px) {
 
     .headerContainer {
         flex-direction: column;
-        height: 20%;
+        height: 15%;
         width: 100%;
         /* background-color: aqua; */
         align-items: start;
         justify-content: center;
     }
+
+    /* 
+    .icon {
+        height: 25px;
+    } */
 
     .creditsContainer {
         width: 100%;
@@ -281,10 +331,13 @@ ul {
     .imageAndTextContainer {
         font-size: 15px;
         width: 100%;
+        height: 50%;
         justify-content: space-between;
         align-items: center;
         /* background-color: red; */
     }
+
+
 
     .logoAndTextContainer {
         font-size: 12px;
@@ -324,5 +377,207 @@ ul {
     .loading-progress span {
         width: 15px;
         height: 15px;
+    }
+
+
+}
+
+
+.bodyConfiguracoesContainer {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.mostrar {
+    display: flex;
+
+}
+
+.configuracoesContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 95%;
+}
+
+.configuracoesEBotaoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 90%;
+}
+
+.tituloELista {
+    width: 49%;
+    height: 100%;
+}
+
+.tituloELista:nth-of-type(2) {
+    margin-left: 1%;
+}
+
+.listaConfiguracoesContainer {
+    width: 100%;
+    height: 92%;
+    /* padding: 1% 2%; */
+    overflow-y: scroll;
+    background-color: rgba(236, 240, 241, 0.6);
+    border: 1px solid #bdc3c7;
+    border-radius: 15px;
+}
+
+.listaConfiguracoesContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.liConfiguracaoContainer {
+    display: flex;
+    width: 100%;
+    padding: 1% 2%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+.operadorEEquipamentoNome {
+    width: 55%;
+    text-transform: uppercase;
+    /* background-color: red; */
+}
+
+.operadorEEquipamentoStatus {
+    width: 25%;
+}
+
+/* .detalhesIndisponibilidade{
+    display: flex;
+    font-size: 11px;
+    width: 20%;
+    gap: 5px;
+} */
+
+.operadorEEquipamentoNome,
+.operadorEEquipamentoStatus {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* .personalizadoBtnContainerTela3{
+    width: 100%;
+    height: 4%;
+    background-color: ;
+    text-align: center;
+} */
+
+
+.switchContainer {
+    width: 50px;
+    height: 25px;
+    display: flex;
+    background-color: rgba(192, 57, 43, 1.0);
+    /* border: 2px solid rgba(192, 57, 43,1.0); */
+    border-radius: 20px;
+    align-items: center;
+    justify-content: start;
+    padding: 2px;
+    transition: 0.3s;
+    /* justify-content: center; */
+}
+
+.toggleButton {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+
+}
+
+.switchContainer.active {
+    background-color: #3E7670;
+    /* justify-content: end; */
+
+}
+
+.liConfiguracaoContainer:has(.controlesConfiguracaoContainer > :not(.switchContainer.active)) {
+    background-color: rgba(231, 76, 60, 0.8);
+    color: #fff;
+}
+
+.switchContainer.active .toggleButton {
+    transform: translateX(130%);
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 720px) {
+    .icon {
+        height: 90%;
+    }
+
+    .configuracoesEBotaoContainer {
+        justify-content: start;
+        gap: 1%;
+    }
+
+    .tituloELista h2 {
+        font-size: 15px;
+        /* text-transform: uppercase; */
+        margin-bottom: 2px;
+        /* background-color: red; */
+    }
+
+    .configuracoesContainer {
+        flex-direction: column;
+        height: 92%;
+        gap: 2%;
+        /* background-color: aqua; */
+    }
+
+    .liConfiguracaoContainer {
+        padding: 0% 2%;
+    }
+
+    .operadorEEquipamentoNome,
+    .operadorEEquipamentoStatus {
+        font-size: 11px;
+        /* background-color: aua; */
+    }
+
+    .tituloELista {
+        /* overflow-y: scroll; */
+        height: 49%;
+        width: 100%;
+        /* background-color: #3E7670; */
+        /* height: 100%; */
+    }
+
+
+
+    .personalizadoBtnContainer {
+        width: 100%;
+        height: 4%;
+        padding: 0 3%;
+        /* background-color: ; */
+        text-align: center;
+    }
+
+    .switchContainer {
+        width: 40px;
+        height: 20px;
+    }
+
+    .toggleButton {
+        width: 16px;
+        height: 16px;
     }
 }

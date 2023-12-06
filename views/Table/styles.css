@@ -334,48 +334,7 @@ ul {
 
 }
 
-
-/* @media screen and (max-width: 500px) {
-
-    th {
-        font-size: 9px;
-    }
-
-    th:nth-child(1) {
-
-        text-align: center;
-    }
-} */
-
-/* @media screen and (max-width: 767px) {
-
-    .styled-table thead tr {
-        font-size: 11px;
-    }
-
-    .styled-table td {
-        padding: 0.1% 5px;
-        font-size: 12px;
-        letter-spacing: 1px;
-        margin: 0 10px;
-        background-color: #B95946;
-    }
-
-    th:nth-child(1) {
-        width: 17%;
-        background-color: #484c54;
-    }
-
-    th:nth-child(4) {
-        width: 15%;
-        background-color: #484c54;
-    }
-
-    td:nth-child(4) {
-        text-align: center;
-        background-color: #484c54;
-    }
-
-
-
-} */
+.mostrar {
+    display: flex;
+    transition: 3s ease 1s;
+}

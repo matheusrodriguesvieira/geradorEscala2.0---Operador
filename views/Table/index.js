@@ -1,9 +1,7 @@
-var turma;
-// USADA PARA GUARDAR A ESCALA FINAL;
-var escala;
 // USADA PARA GUARDAR TODAS AS ESCALAS
 var listaEscalas;
 var idLista;
+var token;
 // ---------------------------------------------------------------------------------------
 
 
@@ -14,24 +12,6 @@ var btnMostrarTela1 = document.querySelector('[voltar]');
 var btnTela4Voltar = document.querySelector('[tela4Voltar]');
 
 // ---------------------------------------------------------------------------------------
-
-// FUNÇÕES DO BANCO DE DADOS
-// ---------------------------------------------------------------------------------------
-async function fetchData(method, data, param) {
-
-    if (method == 'GET') {
-        const URI = `https://backend-rotas-alternativas.vercel.app/listaEscalas/show/${param}`;
-
-
-        await fetch(URI)
-            .then(resposta => resposta.json()) // Converte a resposta para JSON
-            .then(dadosResposta => {
-                listaEscalas = dadosResposta;
-            })
-            .catch(erro => console.error('Erro:', erro));
-
-    }
-}
 
 function renderizarEscala(escala, operadoresForaEscala) {
     let tbody = document.querySelector('tbody');
@@ -86,18 +66,43 @@ function renderizarEscala(escala, operadoresForaEscala) {
 }
 
 async function carregarAplicacao() {
-    turma = sessionStorage.getItem('turma');
 
     listaEscalas = {};
 
-    if (sessionStorage.getItem("idLista") != null) {
+    idLista = JSON.parse(sessionStorage.getItem("idLista"));
+    const URI = `https://backend-rotas-alternativas.vercel.app/listaEscalas/show/${idLista}`;
+    const configuracao = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': token
+        },
+    };
 
-        idLista = JSON.parse(sessionStorage.getItem("idLista"));
-        await fetchData("GET", "", idLista);
+    await fetch(URI, configuracao)
+        .then(resposta => resposta.json()) // Converte a resposta para JSON
+        .then(dados => {
+            if (dados.error) {
+                Toastify({
+                    text: dados.message,
+                    duration: 3000,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "rgba(192, 57, 43,1.0)",
+                    }
+                }).showToast();
+                setTimeout(() => {
+                    window.location.replace('../login/index.html');
+                }, 3000);
+            } else {
+                listaEscalas = dados;
+            }
+        })
+        .catch(erro => console.error('Erro:', erro));
 
-        renderizarEscala(listaEscalas.escala, listaEscalas.operadoresForaEscala);
-
-    }
+    renderizarEscala(listaEscalas.escala, listaEscalas.operadoresForaEscala);
     atribuirEventos();
 }
 
@@ -105,7 +110,7 @@ function atribuirEventos() {
     // // BOTAO VOLTAR DA TELA 2
     // console.log(btnMostrarTela1);
     btnMostrarTela1.addEventListener('click', () => {
-        window.location.replace('../Main/index.html');
+        window.location.replace('../main/index.html');
     });
 }
 
@@ -114,10 +119,12 @@ function atribuirEventos() {
 
 
 window.addEventListener('load', async () => {
-    if (sessionStorage.getItem('turma') == null) {
-        window.location.replace('../Main/index.html');
+    if (sessionStorage.getItem('data') == null || sessionStorage.getItem('idLista') == null) {
+        window.location.replace('../login/index.html');
     }
 
+    let data = JSON.parse(sessionStorage.getItem('data'));
+    token = data.token;
     let loading = document.querySelector('.screen-loading-container');
 
     await carregarAplicacao();

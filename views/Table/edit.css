@@ -51,21 +51,16 @@
 }
 
 
-.inputContainer{
+.inputContainer {
     margin: 3% 2%;
     width: 60%;
     height: 80%;
 }
 
-.inputContainer > input{
+.inputContainer>input {
     border-radius: 25px;
     border: 1px solid #444D55;
     height: 100%;
     width: 100%;
     padding: 1% 2%;
-}
-
-.mostrar{
-    display: flex;
-    transition: 3s ease 1s;
 }
