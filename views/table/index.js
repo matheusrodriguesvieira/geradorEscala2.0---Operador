@@ -121,12 +121,48 @@ function atribuirEventos() {
 window.addEventListener('load', async () => {
     if (sessionStorage.getItem('data') == null || sessionStorage.getItem('idLista') == null) {
         window.location.replace('../login/index.html');
+    } else {
+        let loading = document.querySelector('.screen-loading-container');
+        let data = JSON.parse(sessionStorage.getItem('data'));
+        token = data.token;
+        usuario = data.usuario;
+
+
+        const URI = `https://backend-rotas-alternativas.vercel.app/validate-token/supervisor`;
+        const CONFIGURAÇÃO = {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': token
+            },
+        }
+
+        await fetch(URI, CONFIGURAÇÃO)
+            .then(response => {
+                return response.json();
+            })
+            .then(async dados => {
+                if (dados.error) {
+                    Toastify({
+                        text: dados.message,
+                        duration: 3000,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "rgba(192, 57, 43,1.0)",
+                        }
+                    }).showToast();
+
+                    setTimeout(() => {
+                        window.location.replace('../login/index.html');
+                    }, 3000);
+                } else {
+                    await carregarAplicacao();
+                }
+            })
+            .catch(error => error.response);
+
+        loading.classList.toggle('mostrar');
     }
-
-    let data = JSON.parse(sessionStorage.getItem('data'));
-    token = data.token;
-    let loading = document.querySelector('.screen-loading-container');
-
-    await carregarAplicacao();
-    loading.classList.toggle('mostrar');
 });
