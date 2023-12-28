@@ -128,7 +128,7 @@ window.addEventListener('load', async () => {
         usuario = data.usuario;
 
 
-        const URI = `https://backend-rotas-alternativas.vercel.app/validate-token/supervisor`;
+        const URI = `https://backend-rotas-alternativas.vercel.app/validate-token/operador`;
         const CONFIGURAÇÃO = {
             method: "GET",
             headers: {
